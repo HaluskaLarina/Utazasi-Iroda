@@ -10,7 +10,7 @@
 ## Dokumentálás
 - Weboldal neve: AeroVibe Tours
 - Trello: Bombolya Milán
-- Figma: Haluska Larina
+- Figma: Haluska Larina, Bombolya Milán
 - Fejlesztés: Haluska Lairna, Bombolya Milán
 
 ---
