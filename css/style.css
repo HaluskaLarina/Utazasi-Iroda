@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 .contact-page {
     background-image: url();
@@ -139,3 +140,12 @@
             background: #6d6fe2;
         }
 
+=======
+:root {
+  --primary-blue: #0077B6;
+  --accent-sky: #00B4D8;
+  --cta-gold: #FFB703;
+  --bg-light: #F8F9FA;
+  --text-dark: #212529;
+}
+>>>>>>> 62b7c82ba80016cb95d55e99e4f2321c168c60c9
