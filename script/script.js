@@ -25,10 +25,7 @@ fetch("footer.html")
 .catch(error => console.error("Hiba a lábléc betöltődésekor!", error));
 
 
-/*
-inspiration
-https://cz.pinterest.com/pin/830703093792161391/
-*/
+
 var swiper = new Swiper(".swiper", {
   effect: "coverflow",
   grabCursor: true,
