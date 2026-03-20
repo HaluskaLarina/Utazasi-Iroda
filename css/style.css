@@ -99,3 +99,12 @@ body {
 .legnep{
   font-family: 'Times New Roman', Times, serif;
 }
+/*footer*/
+footer {
+    background-color: #606eeb;
+    text-align: center;
+    padding: 10px;
+    margin-top: 20px;
+}
+
+

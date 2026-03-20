@@ -10,262 +10,75 @@
 </head>
 
 <body class="contact-page">
-    <main id="page-container" class="container mx-auto px-4 py-8">
-        <!-- Home Page (Bombolya Milán) -->
-        <section id="home-page" class="page-transition active-page">
-            <div class="hero-gradient rounded-2xl p-8 md:p-12 text-white mb-12">
-                <div class="max-w-3xl">
-                    <h2 class="text-4xl md:text-5xl font-bold mb-4 font-serif">Fedezd fel a világot velünk!</h2>
-                    <p class="text-xl mb-8">Professzionális utazási irodánk segít megtalálni az Ön számára tökéletes úti célt, akár belföldön, akár a világ másik végén.</p>
-                    <button onclick="loadPage('booking')" class="bg-accent text-dark font-bold px-8 py-3 rounded-lg hover:bg-yellow-500 transition text-lg">
-                        <i class="fas fa-calendar-check mr-2"></i>Időpontfoglalás
-                    </button>
-                </div>
-            </div>
-
-            <!-- Popular Hungarian Destinations (Bombolya Milán) -->
-            <div class="mb-12">
-                <h2 class="text-3xl font-bold mb-8 text-center text-dark font-serif">Felkapott magyarországi helyek</h2>
-                <div id="hungarian-destinations" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                    <!-- Destinations will be rendered here -->
-                </div>
-            </div>
-
-            <!-- Featured Offers -->
-            <div class="mb-12">
-                <h2 class="text-3xl font-bold mb-8 text-center text-dark font-serif">Kiemelt ajánlataink</h2>
-                <div id="featured-offers" class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                    <!-- Featured offers will be rendered here -->
-                </div>
-            </div>
-
-            <!-- Testimonials -->
-            <div class="bg-light rounded-2xl p-8">
-                <h2 class="text-3xl font-bold mb-8 text-center text-dark font-serif">Vendégeink véleménye</h2>
-                <div id="testimonials" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                    <!-- Testimonials will be rendered here -->
-                </div>
-            </div>
-        </section>
-
-        <!-- Booking Page (Haluska Larina, Bombolya Milán) -->
-        <section id="booking-page" class="page-transition inactive-page">
-            <div class="max-w-4xl mx-auto">
-                <h2 class="text-3xl font-bold mb-8 text-dark font-serif">Időpontfoglalás</h2>
-                
-                <div class="bg-white rounded-xl shadow-lg p-6 mb-8">
-                    <h3 class="text-xl font-semibold mb-6 text-primary">Keresés szállásra</h3>
-                    
-                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-6">
-                        <div>
-                            <label class="block text-sm font-medium text-gray-700 mb-2">Helyszín</label>
-                            <select id="location-select" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent">
-                                <!-- Options will be rendered here -->
-                            </select>
-                        </div>
-                        
-                        <div>
-                            <label class="block text-sm font-medium text-gray-700 mb-2">Érkezés</label>
-                            <input type="date" id="checkin-date" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent">
-                        </div>
-                        
-                        <div>
-                            <label class="block text-sm font-medium text-gray-700 mb-2">Távozás</label>
-                            <input type="date" id="checkout-date" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent">
-                        </div>
-                    </div>
-                    
-                    <div class="mb-6">
-                        <label class="block text-sm font-medium text-gray-700 mb-2">Vendégek száma</label>
-                        <div class="flex items-center">
-                            <button id="decrease-guests" class="bg-gray-200 p-3 rounded-l-lg hover:bg-gray-300">
-                                <i class="fas fa-minus"></i>
-                            </button>
-                            <input type="number" id="guest-count" value="2" min="1" max="10" class="w-20 text-center p-3 border-y border-gray-300">
-                            <button id="increase-guests" class="bg-gray-200 p-3 rounded-r-lg hover:bg-gray-300">
-                                <i class="fas fa-plus"></i>
-                            </button>
-                        </div>
-                    </div>
-                    
-                    <button id="search-accommodations" class="w-full bg-primary text-white py-3 rounded-lg hover:bg-blue-800 transition font-semibold">
-                        <i class="fas fa-search mr-2"></i>Szállások keresése
-                    </button>
+  <!-- Contact Section -->
+        <section id="contact" class="section contact-section">
+            <div class="section-container">
+                <div class="section-header">
+                    <span class="section-number">05</span>
+                    <h2 class="section-title">
+                        <span class="title-bracket">&lt;</span>
+                        <span class="title-text" data-text-en="Contact" data-text-ar="التواصل">Contact</span>
+                        <span class="title-bracket">/&gt;</span>
+                    </h2>
+                    <div class="section-line"></div>
                 </div>
                 
-                <!-- Search Results -->
-                <div id="search-results" class="space-y-6">
-                    <!-- Results will be rendered here -->
-                </div>
-            </div>
-        </section>
-
-        <!-- Contacts Page (Haluska Larina) -->
-        <section id="contacts-page" class="page-transition inactive-page">
-            <div class="max-w-6xl mx-auto">
-                <h2 class="text-3xl font-bold mb-8 text-dark font-serif">Kapcsolat</h2>
-                
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                    <div class="bg-white rounded-xl shadow-lg p-8">
-                        <h3 class="text-2xl font-bold mb-6 text-primary">Elérhetőségeink</h3>
-                        
-                        <div id="contact-info" class="space-y-6">
-                            <!-- Contact info will be rendered here -->
+                <div class="contact-content">
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h4 class="contact-label" data-text-en="Email" data-text-ar="البريد الإلكتروني">Email</h4>
+                                <a href="mailto:developer@example.com" class="contact-value">developer@example.com</a>
+                            </div>
                         </div>
                         
-                        <div class="mt-8">
-                            <h4 class="text-xl font-semibold mb-4">Kövess minket</h4>
-                            <div id="social-links" class="flex space-x-4">
-                                <!-- Social links will be rendered here -->
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h4 class="contact-label" data-text-en="Phone" data-text-ar="الهاتف">Phone</h4>
+                                <a href="tel:+966501234567" class="contact-value">+966 50 123 4567</a>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h4 class="contact-label" data-text-en="Location" data-text-ar="الموقع">Location</h4>
+                                <span class="contact-value" data-text-en="Riyadh, Saudi Arabia" data-text-ar="الرياض، المملكة العربية السعودية">Riyadh, Saudi Arabia</span>
                             </div>
                         </div>
                     </div>
                     
-                    <div class="bg-white rounded-xl shadow-lg p-8">
-                        <h3 class="text-2xl font-bold mb-6 text-primary">Küldj üzenetet</h3>
-                        
-                        <form id="contact-form" class="space-y-4">
-                            <div>
-                                <label class="block text-sm font-medium text-gray-700 mb-2">Név</label>
-                                <input type="text" required class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent">
-                            </div>
-                            
-                            <div>
-                                <label class="block text-sm font-medium text-gray-700 mb-2">Email cím</label>
-                                <input type="email" required class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent">
-                            </div>
-                            
-                            <div>
-                                <label class="block text-sm font-medium text-gray-700 mb-2">Tárgy</label>
-                                <input type="text" required class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent">
-                            </div>
-                            
-                            <div>
-                                <label class="block text-sm font-medium text-gray-700 mb-2">Üzenet</label>
-                                <textarea rows="5" required class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent"></textarea>
-                            </div>
-                            
-                            <button type="submit" class="w-full bg-primary text-white py-3 rounded-lg hover:bg-blue-800 transition font-semibold">
-                                <i class="fas fa-paper-plane mr-2"></i>Üzenet küldése
-                            </button>
-                        </form>
-                    </div>
-                </div>
-                
-                <div class="mt-12 bg-light rounded-xl p-8">
-                    <h3 class="text-2xl font-bold mb-6 text-primary">Irodánk helye</h3>
-                    <div class="aspect-w-16 aspect-h-9 rounded-lg overflow-hidden">
-                        <div class="bg-gray-300 h-64 flex items-center justify-center">
-                            <i class="fas fa-map-marked-alt text-4xl text-gray-500"></i>
-                            <p class="ml-4 text-gray-600">Térkép megjelenítése itt</p>
+                    <form class="contact-form" id="contactForm">
+                        <div class="form-group">
+                            <input type="text" class="form-input" placeholder="Name" data-placeholder-en="Name" data-placeholder-ar="الاسم" required>
                         </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Domestic Travels Page (Haluska Larina) -->
-        <section id="domestic-page" class="page-transition inactive-page">
-            <h2 class="text-3xl font-bold mb-8 text-dark font-serif">Belföldi utazások</h2>
-            
-            <div class="mb-8">
-                <p class="text-lg text-gray-600 mb-6">Fedezze fel Magyarország rejtett kincseit! Kínálatunkban megtalálja a legszebb magyarországi célpontokat, a Tisza-tótól a Balatonig, a Bükk-hegységtől a Hortobágyig.</p>
-                
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
-                    <div class="bg-primary text-white p-4 rounded-lg text-center">
-                        <i class="fas fa-hotel text-3xl mb-2"></i>
-                        <p class="font-semibold">500+ szállás</p>
-                    </div>
-                    <div class="bg-secondary text-white p-4 rounded-lg text-center">
-                        <i class="fas fa-route text-3xl mb-2"></i>
-                        <p class="font-semibold">50+ útvonal</p>
-                    </div>
-                    <div class="bg-accent text-dark p-4 rounded-lg text-center">
-                        <i class="fas fa-users text-3xl mb-2"></i>
-                        <p class="font-semibold">10.000+ elégedett vendég</p>
-                    </div>
-                </div>
-            </div>
-            
-            <div id="domestic-packages" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <!-- Domestic packages will be rendered here -->
-            </div>
-        </section>
-
-        <!-- International Travels Page (Bombolya Milán) -->
-        <section id="international-page" class="page-transition inactive-page">
-            <h2 class="text-3xl font-bold mb-8 text-dark font-serif">Külföldi utazások</h2>
-            
-            <div class="mb-8">
-                <p class="text-lg text-gray-600 mb-6">Utazzon velünk a világ körül! Exkluzív ajánlatainkkal felfedezheti Európa csodáit, Ázsia rejtett kincseit, Amerika lenyűgöző tájait vagy Afrika vadonját.</p>
-                
-                <div class="flex flex-wrap gap-4 mb-8">
-                    <button class="continent-filter bg-primary text-white px-4 py-2 rounded-lg hover:bg-blue-800 transition" data-continent="all">Összes</button>
-                    <!-- Continent filters will be rendered here -->
-                </div>
-            </div>
-            
-            <div id="international-packages" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <!-- International packages will be rendered here -->
-            </div>
-        </section>
-
-        <!-- Login Page (Haluska Larina, Bombolya Milán) -->
-        <section id="login-page" class="page-transition inactive-page">
-            <div class="max-w-md mx-auto">
-                <div class="bg-white rounded-xl shadow-lg p-8">
-                    <div class="text-center mb-8">
-                        <i class="fas fa-user-circle text-6xl text-primary mb-4"></i>
-                        <h2 class="text-3xl font-bold text-dark font-serif">Bejelentkezés</h2>
-                        <p class="text-gray-600 mt-2">Jelentkezzen be fiókjába</p>
-                    </div>
-                    
-                    <form id="login-form" class="space-y-6">
-                        <div>
-                            <label class="block text-sm font-medium text-gray-700 mb-2">Email cím</label>
-                            <input type="email" required class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent" placeholder="email@pelda.hu">
+                        <div class="form-group">
+                            <input type="email" class="form-input" placeholder="Email" data-placeholder-en="Email" data-placeholder-ar="البريد الإلكتروني" required>
                         </div>
-                        
-                        <div>
-                            <label class="block text-sm font-medium text-gray-700 mb-2">Jelszó</label>
-                            <input type="password" required class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent" placeholder="••••••••">
+                        <div class="form-group">
+                            <input type="text" class="form-input" placeholder="Subject" data-placeholder-en="Subject" data-placeholder-ar="الموضوع" required>
                         </div>
-                        
-                        <div class="flex items-center justify-between">
-                            <div class="flex items-center">
-                                <input type="checkbox" id="remember-me" class="h-4 w-4 text-primary rounded">
-                                <label for="remember-me" class="ml-2 text-sm text-gray-700">Emlékezz rám</label>
-                            </div>
-                            <a href="#" class="text-sm text-primary hover:text-blue-800">Elfelejtett jelszó?</a>
+                        <div class="form-group">
+                            <textarea class="form-input form-textarea" rows="5" placeholder="Message" data-placeholder-en="Message" data-placeholder-ar="الرسالة" required></textarea>
                         </div>
-                        
-                        <button type="submit" class="w-full bg-primary text-white py-3 rounded-lg hover:bg-blue-800 transition font-semibold">
-                            <i class="fas fa-sign-in-alt mr-2"></i>Bejelentkezés
+                        <button type="submit" class="btn btn-primary btn-submit">
+                            <span data-text-en="Send Message" data-text-ar="إرسال الرسالة">Send Message</span>
+                            <i class="fas fa-paper-plane"></i>
                         </button>
                     </form>
-                    
-                    <div class="mt-8 text-center">
-                        <p class="text-gray-600">Még nincs fiókja?</p>
-                        <button onclick="loadPage('registration')" class="mt-2 text-primary hover:text-blue-800 font-semibold">
-                            Regisztráljon most!
-                        </button>
-                    </div>
-                    
-                    <div class="mt-8 pt-8 border-t border-gray-200">
-                        <p class="text-center text-gray-600 mb-4">Vagy jelentkezzen be közösségi fiókjával</p>
-                        <div class="flex justify-center space-x-4">
-                            <button class="bg-blue-600 text-white p-3 rounded-full hover:bg-blue-700">
-                                <i class="fab fa-facebook-f"></i>
-                            </button>
-                            <button class="bg-red-500 text-white p-3 rounded-full hover:bg-red-600">
-                                <i class="fab fa-google"></i>
-                            </button>
-                        </div>
-                    </div>
                 </div>
             </div>
         </section>
     </main>
+
     <footer id="js-footer"></footer>
 
     
