@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="hu">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kosár</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+
+        .cart-card {
+            background-color: #fff;
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 15px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .cart-card img {
+            max-width: 80px;
+            border-radius: 5px;
+        }
+
+        .cart-item-info {
+            margin-left: 15px;
+            flex: 1;
+        }
+
+        .cart-qty {
+            width: 60px;
+            text-align: center;
+        }
+
+        .cart-total {
+            font-size: 1.3rem;
+            font-weight: 600;
+            text-align: right;
+            margin-top: 20px;
+
+        }
+
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">  <div class="container-fluid">    <a
+                class="navbar-brand button text-white" href="kiegeszitok es termekek.html">Vásárolj még ide
+                kattintva!</a>    <div class="d-flex">      <a class="nav-link position-relative" href="kosar.html">   
+                                <span id="cart-count"
+                        class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">0</span> 
+                        </a>    </div>  </div>
+    </nav>
+    <div class="container mt-5">  <h2 class="mb-4">Kosár tartalma</h2>  <div id="cart-items" class="row"></div>  <div
+            id="cart-total" class="cart-total"></div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // 5. jslet cart = JSON.parse(localStorage.getItem("cart") || "[]");
+        function updateCartCount() { const count = cart.reduce((sum, item) => sum + item.qty, 0); const counter = document.getElementById("cart-count"); if (counter) counter.textContent = count; }
+        function renderCart() {
+            const cartDiv = document.getElementById("cart-items"); const totalDiv = document.getElementById("cart-total"); cartDiv.innerHTML = ""; let total = 0;
+            if (cart.length === 0) { cartDiv.innerHTML = "<p>A kosár üres.</p>"; totalDiv.innerHTML = ""; return; }
+            cart.forEach(item => {
+                const col = document.createElement("div"); col.className = "col-12";
+                col.innerHTML = `        <div class="cart-card d-flex align-items-center flex-wrap">            <img src="${item.img}" alt="${item.name}">            <div class="cart-item-info">                <h5>${item.name}</h5>                <p>${item.price} Ft / db</p>            </div>            <input type="number" class="form-control cart-qty" min="1" value="${item.qty}" data-name="${item.name}">            <span class="ms-3 fw-bold">${item.price * item.qty} Ft</span>            <button class="btn btn-danger btn-sm ms-3 remove-item" data-name="${item.name}">Törlés</button>        </div>        `; cartDiv.appendChild(col); total += item.price * item.qty;
+            });
+            totalDiv.textContent = "Összesen: " + total + " Ft";
+            setupQtyChange(); setupRemoveButtons();
+        }
+
+
+        function setupQtyChange() { document.querySelectorAll(".cart-qty").forEach(input => { input.addEventListener("change", (e) => { const name = e.target.dataset.name; const qty = parseInt(e.target.value); const item = cart.find(i => i.name === name); if (item && qty > 0) { item.qty = qty; localStorage.setItem("cart", JSON.stringify(cart)); renderCart(); updateCartCount(); } }); }); }
+        function setupRemoveButtons() { document.querySelectorAll(".remove-item").forEach(btn => { btn.addEventListener("click", () => { const name = btn.dataset.name; cart = cart.filter(i => i.name !== name); localStorage.setItem("cart", JSON.stringify(cart)); renderCart(); updateCartCount(); }); }); }
+        renderCart(); updateCartCount();
+    </script>
+    <div class="text-end"><button class="btn btn-danger fizetes" data-name="Fizetés">Fizetés</button></div>
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
