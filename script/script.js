@@ -95,6 +95,7 @@ document.querySelector(".contact-form").addEventListener("submit", function(e) {
 });
 
 
+<<<<<<< HEAD
 // Booking-style dátum választó
 flatpickr("#dateRange", {
     mode: "range",            // KÉT dátum kiválasztása
@@ -110,3 +111,5 @@ flatpickr("#dateRange", {
         }
     }
 });
+=======
+>>>>>>> 5d35fd86b4d02b4cc72bf2191e9354876e29898f
