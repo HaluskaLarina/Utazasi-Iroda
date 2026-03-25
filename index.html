@@ -1,93 +1,139 @@
 <!DOCTYPE html>
 <html lang="hu">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AeroVibe Tours</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
     <header id="js-navbar"></header>
 
+    <section class="hero">
+
+    <div class="hero-overlay"></div>
+
+    <div class="hero-content text-center text-white">
+        <h1>Találd meg álmaid szállását!</h1>
+        <p>Fedezd fel Magyarország mesés tájait!</p>
+
+        <div class="search-bar">
+
+            <div class="search-item">
+                <i class="bi bi-geo-alt"></i>
+                <input type="text" placeholder="pl. Tihany">
+            </div>
+
+            <div class="search-item">
+                <i class="bi bi-calendar"></i>
+                <input type="text" id="dateRange" placeholder="Érkezés - Távozás">
+            </div>
+
+            <div class="search-item">
+                <i class="bi bi-people"></i>
+                <select>
+                    <option>2 fő</option>
+                    <option>1 fő</option>
+                    <option>3 fő</option>
+                    <option>4 fő</option>
+                </select>
+            </div>
+
+            <button class="search-btn" onclick="kereses()">
+                <i class="bi bi-search"></i> Keresés
+            </button>
+
+        </div>
+    </div>
+</section>
+
+    <h1 class="text-center legnep">Legnépszerűbb helyek</h1>
 
 
-<h1 class="text-center legnep">Legnépszerűbb helyek</h1>
-
-
-        <div class="swiper mySwiper">
-    <div class="swiper-wrapper">
-        <!-- Slide 1 -->
-        <div class="swiper-slide">
-            <div class="swiper-slide-img">
-                <img src="https://novaontheroad.com/wp-content/uploads/2026/01/Depositphotos_199861420_XL-scaled.jpg" alt="Tihany">
+    <div class="swiper mySwiper">
+        <div class="swiper-wrapper">
+            <!-- 1 -->
+            <div class="swiper-slide">
+                <div class="swiper-slide-img">
+                    <img src="https://novaontheroad.com/wp-content/uploads/2026/01/Depositphotos_199861420_XL-scaled.jpg"
+                        alt="Tihany">
+                </div>
+                <div class="swiper-slide-content">
+                    <h2>Tihany</h2>
+                    <p>Tihany egy festői kisváros a Balaton északi partján, híres a levendulamezőiről és a történelmi
+                        apátságáról.</p>
+                    <a class="btn btn-primary" href="https://en.wikipedia.org/wiki/Louvre" target="_blank">Tovább</a>
+                </div>
             </div>
-            <div class="swiper-slide-content">
-                <h2>Tihany</h2>
-                <p>Tihany egy festői kisváros a Balaton északi partján, híres a levendulamezőiről és a történelmi apátságáról.</p>
-                <a class="btn btn-primary" href="https://en.wikipedia.org/wiki/Louvre" target="_blank">Tovább</a>
+            <!-- 2 -->
+            <div class="swiper-slide">
+                <div class="swiper-slide-img">
+                    <img src="https://gte-gcms.images.tshiftcdn.com/AI0DIWHkBQZyx6oBkSd3hz/resize=width:2048,fit:max/nRbWzZjQ5mmWYXgfa5oD?dpr=2&fit=crop&height=411&quality=75&width=380"
+                        alt="Miskolc">
+                </div>
+                <div class="swiper-slide-content">
+                    <h2>Miskolc</h2>
+                    <p>Miskolc a Bükk hegység lábánál fekvő város, híres barlangfürdőjéről és gazdag történelméről.</p>
+                    <a class="btn btn-primary" href="https://en.wikipedia.org/wiki/Seychelles"
+                        target="_blank">Tovább</a>
+                </div>
             </div>
-        </div>
-        <!-- Slide 2 -->
-        <div class="swiper-slide">
-            <div class="swiper-slide-img">
-                <img src="https://gte-gcms.images.tshiftcdn.com/AI0DIWHkBQZyx6oBkSd3hz/resize=width:2048,fit:max/nRbWzZjQ5mmWYXgfa5oD?dpr=2&fit=crop&height=411&quality=75&width=380" alt="Miskolc">
+            <!-- 3 -->
+            <div class="swiper-slide">
+                <div class="swiper-slide-img">
+                    <img src="https://www.balatonboglar.hu/templates/g5_helium/custom/images/fix_tartalom/slideshow_new3.jpg"
+                        alt="Balatonboglár">
+                </div>
+                <div class="swiper-slide-content">
+                    <h2>Balatonboglár</h2>
+                    <p>Balatonboglár a Balaton déli partján fekvő üdülőváros, borairól és napsütéses strandjairól
+                        ismert.</p>
+                    <a class="btn btn-primary" href="https://en.wikipedia.org/wiki/London" target="_blank">Tovább</a>
+                </div>
             </div>
-            <div class="swiper-slide-content">
-                <h2>Miskolc</h2>
-                <p>Miskolc a Bükk hegység lábánál fekvő város, híres barlangfürdőjéről és gazdag történelméről.</p>
-                <a class="btn btn-primary" href="https://en.wikipedia.org/wiki/Seychelles" target="_blank">Tovább</a>
+            <!-- 4 -->
+            <div class="swiper-slide">
+                <div class="swiper-slide-img">
+                    <img src="https://visiteger.com/uploads/16638336571napegerben5.jpg" alt="Eger">
+                </div>
+                <div class="swiper-slide-content">
+                    <h2>Eger</h2>
+                    <p>Eger történelmi város a Heves megyében, híres a váráról, a termálfürdőiről és a kiváló borairól.
+                    </p>
+                    <a class="btn btn-primary" href="https://en.wikipedia.org/wiki/Maldives" target="_blank">Tovább</a>
+                </div>
             </div>
-        </div>
-        <!-- Slide 3 -->
-        <div class="swiper-slide">
-            <div class="swiper-slide-img">
-                <img src="https://www.balatonboglar.hu/templates/g5_helium/custom/images/fix_tartalom/slideshow_new3.jpg" alt="Balatonboglár">
-            </div>
-            <div class="swiper-slide-content">
-                <h2>Balatonboglár</h2>
-                <p>Balatonboglár a Balaton déli partján fekvő üdülőváros, borairól és napsütéses strandjairól ismert.</p>
-                <a class="btn btn-primary" href="https://en.wikipedia.org/wiki/London" target="_blank">Tovább</a>
-            </div>
-        </div>
-        <!-- Slide 4 -->
-        <div class="swiper-slide">
-            <div class="swiper-slide-img">
-                <img src="https://visiteger.com/uploads/16638336571napegerben5.jpg" alt="Eger">
-            </div>
-            <div class="swiper-slide-content">
-                <h2>Eger</h2>
-                <p>Eger történelmi város a Heves megyében, híres a váráról, a termálfürdőiről és a kiváló borairól.</p>
-                <a class="btn btn-primary" href="https://en.wikipedia.org/wiki/Maldives" target="_blank">Tovább</a>
-            </div>
-        </div>
-        <!-- Slide 5 -->
-        <div class="swiper-slide">
-            <div class="swiper-slide-img">
-                <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0d/11/3a/15/nyiregyhaza-the-twin.jpg?w=1400&h=1400&s=1" alt="Nyíregyháza">
-            </div>
-            <div class="swiper-slide-content">
-                <h2>Nyíregyháza</h2>
-                <p>Nyíregyháza a Szabolcs-Szatmár-Bereg megyei nagyváros, gyönyörű parkokkal, állatkerttel és kulturális látnivalókkal.</p>
-                <a class="btn btn-primary" href="https://en.wikipedia.org/wiki/Italy" target="_blank">Tovább</a>
+            <!-- 5 -->
+            <div class="swiper-slide">
+                <div class="swiper-slide-img">
+                    <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0d/11/3a/15/nyiregyhaza-the-twin.jpg?w=1400&h=1400&s=1"
+                        alt="Nyíregyháza">
+                </div>
+                <div class="swiper-slide-content">
+                    <h2>Nyíregyháza</h2>
+                    <p>Nyíregyháza a Szabolcs-Szatmár-Bereg megyei nagyváros, gyönyörű parkokkal, állatkerttel és
+                        kulturális látnivalókkal.</p>
+                    <a class="btn btn-primary" href="https://en.wikipedia.org/wiki/Italy" target="_blank">Tovább</a>
+                </div>
             </div>
         </div>
     </div>
-</div>
-            <!-- Swiper navigation -->
 
-
-            <div class="swiper-pagination"></div>
-        </div>
+    <div class="swiper-pagination"></div>
+    </div>
     </main>
 
     <footer id="js-footer"></footer>
 
-    <!-- JS Fájlok -->
+<script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/hu.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="script/script.js"></script>
 </body>
+
 </html>

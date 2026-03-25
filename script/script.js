@@ -93,3 +93,20 @@ document.querySelector(".contact-form").addEventListener("submit", function(e) {
     e.preventDefault();
     alert("Üzenet elküldve! (demo)");
 });
+
+
+// Booking-style dátum választó
+flatpickr("#dateRange", {
+    mode: "range",            // KÉT dátum kiválasztása
+    minDate: "today",         // múlt tiltva
+    dateFormat: "Y. m. d.",   // szebb magyar formátum
+    locale: "hu",             // magyar nyelv
+    showMonths: 2,            // KÉT HÓNAP egyszerre (mint booking!)
+    
+    onClose: function(selectedDates, dateStr) {
+        if (selectedDates.length === 2) {
+            console.log("Érkezés:", selectedDates[0]);
+            console.log("Távozás:", selectedDates[1]);
+        }
+    }
+});
