@@ -115,3 +115,7 @@ footer {
 .arakhatter1{
   background-color: #afd5ff;
 }
+
+header{
+    background: linear-gradient(135deg, #34495e, #2c3e50)
+}
