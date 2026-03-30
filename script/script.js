@@ -97,11 +97,11 @@ document.querySelector(".contact-form").addEventListener("submit", function(e) {
 
 
 flatpickr("#dateRange", {
-    mode: "range",            // KÉT dátum kiválasztása
-    minDate: "today",         // múlt tiltva
-    dateFormat: "Y. m. d.",   // szebb magyar formátum
-    locale: "hu",             // magyar nyelv
-    showMonths: 2,            // KÉT HÓNAP egyszerre (mint booking!)
+    mode: "range",            
+    minDate: "today",         
+    dateFormat: "Y. m. d.",   
+    locale: "hu",             
+    showMonths: 2,            
     
     onClose: function(selectedDates, dateStr) {
         if (selectedDates.length === 2) {

@@ -1,52 +1,80 @@
 <!DOCTYPE html>
 <html lang="hu">
+
 <head>
-<meta charset="UTF-8">
-<title>Eger szállások</title>
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
-<style>
-.hotel-card { display: flex; gap: 20px; padding: 15px; border: 1px solid #ddd; border-radius: 12px; margin-bottom: 20px; transition: 0.3s; }
-.hotel-card:hover { box-shadow: 0 5px 20px rgba(0,0,0,0.1); }
-.hotel-img { width: 250px; height: 160px; object-fit: cover; border-radius: 10px; }
-.price { font-size: 20px; font-weight: bold; color: #0d6efd; }
-.favorite { cursor: pointer; font-size: 22px; }
-</style>
+    <meta charset="UTF-8">
+    <title>Eger szállások</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <style>
+        .hotel-card {
+            display: flex;
+            gap: 20px;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            transition: 0.3s;
+        }
+
+        .hotel-card:hover {
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .hotel-img {
+            width: 250px;
+            height: 160px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        .price {
+            font-size: 20px;
+            font-weight: bold;
+            color: #0d6efd;
+        }
+
+        .favorite {
+            cursor: pointer;
+            font-size: 22px;
+        }
+    </style>
 </head>
+
 <body class="container py-4">
-<h1 class="mb-4">Eger szállások</h1>
-<div id="hotels"></div>
-<a href="kedvencek.html" class="btn btn-primary mt-3">❤️ Kedvencek</a>
+    <h1 class="mb-4">Eger szállások</h1>
+    <div id="hotels"></div>
+    <a href="kedvencek.html" class="btn btn-primary mt-3">❤️ Kedvencek</a>
 
-<script>
-const hotels = [
-  { "id": 61, "name": "Eger Panorama Hotel", "price": 24990, "stars": 4, "img": "https://i.szalas.hu/hotels/1442121/500x500/38044254.jpg", "street": "Dobó tér 1" },
-  { "id": 62, "name": "Borászat Vendégház", "price": 18500, "stars": 3, "img": "https://www.szallasvadasz.hu/hotel-flora-eger/images/hotel-flora-eger-379215-1000x500.webp", "street": "Szépasszony utca 12" },
-  { "id": 63, "name": "Eger View Resort", "price": 32990, "stars": 5, "img": "https://pic.szallaskeres.hu/296x227/bocskai-apartman-eger-apartman--67546.jpg", "street": "Kossuth Lajos utca 5" },
-  { "id": 64, "name": "Napfény Vendégház", "price": 15990, "stars": 3, "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/223265822.jpg?k=6a30c079d95719889eb03f57e7439749a8bc5648499fa484020134d89945f920&o=", "street": "Árok utca 8" },
-  { "id": 65, "name": "Luxury Eger Suites", "price": 45990, "stars": 5, "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSyi3QXYFHtlFGiU485bV39zU8BloY0kuKtcw&s", "street": "Rákóczi utca 3" },
-  { "id": 66, "name": "Kék Hullám Hotel", "price": 27990, "stars": 4, "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSvT-T708-rH6DPxK93KkLdAqctkr7oGGqyaw&s", "street": "Cifrakapu utca 10" },
-  { "id": 67, "name": "Panoráma Apartman", "price": 19990, "stars": 4, "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSSoIcoiUIrQJi4BzQNSwJoNsLnFzw02Etbxw&s", "street": "Egri út 15" },
-  { "id": 68, "name": "Eger Relax House", "price": 21990, "stars": 4, "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSY82q7BNR3aTQX1qoqOJDZk6b95Zg2_X-pQQ&s", "street": "Lajos utca 6" },
-  { "id": 69, "name": "Boutique Eger Hotel", "price": 34990, "stars": 5, "img": "https://i.szalas.hu/hotels/466714/500x500/37905564.jpg", "street": "Tárkányi utca 9" },
-  { "id": 70, "name": "Levendula Garden", "price": 17990, "stars": 3, "img": "https://pic.szallaskeres.hu/egeri-sz%C3%A1ll%C3%A1sok--14227.jpg", "street": "Kálvária utca 4" },
-  { "id": 71, "name": "Naplemente Hotel", "price": 28990, "stars": 4, "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSVDLPNKu0dHRrCBAaGQNl_6PEUnbTGsyFh7Q&s", "street": "Dobó István utca 7" },
-  { "id": 72, "name": "Eger Breeze", "price": 23990, "stars": 4, "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTCtcpdmNeTWWjDrVtcCdke_4wV60hMGVp0yA&s", "street": "Gróf utca 5" },
-  { "id": 73, "name": "Relax Apartman", "price": 16990, "stars": 3, "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSKxJvpNEdc7-Qv14ivPiKi2S-IetRmkr5CIQ&s", "street": "Széchenyi utca 2" },
-  { "id": 74, "name": "Premium Wellness Hotel", "price": 39990, "stars": 5, "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRTP61fNUNDxkA2WPom2s30rfrfUCTpkPM6sA&s", "street": "Fürdő utca 3" },
-  { "id": 75, "name": "Kikötő Hotel", "price": 25990, "stars": 4, "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS-YLknk4lLJeFVfp4LkKZkvHj_Sm7KU3tFAw&s", "street": "Kossuth tér 1" },
-  { "id": 76, "name": "Levél Villa", "price": 20990, "stars": 4, "img": "", "street": "Villapark utca 8" },
-  { "id": 77, "name": "Tóparti Apartman", "price": 18990, "stars": 3, "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQWvG5gUUchvQJUleiZO_CaCHgo0CclRXTfkQ&s", "street": "Tópart utca 11" },
-  { "id": 78, "name": "Eger Elite Resort", "price": 49990, "stars": 5, "img": "https://pic.szallaskeres.hu/296x227/%C3%A9letfa-vend%C3%A9gh%C3%A1z-eger-sz%C3%A1ll%C3%A1s--15310.jpg", "street": "Elite utca 4" },
-  { "id": 79, "name": "Csendes Pihenő", "price": 14990, "stars": 3, "img": "https://www.balcsi-apartman.hu/wp-content/uploads/2025/01/Eger-szallas-felpanzioval.jpg", "street": "Csend utca 6" },
-  { "id": 80, "name": "Grand Eger Hotel", "price": 36990, "stars": 5, "img": "https://www.ittjartam.hu/eger/szallasok/hotel-villa-volgy/hotel-villa-volgy-205941-255x280.webp", "street": "Grand tér 8" }
-];
+    <script>
+        const hotels = [
+            { "id": 61, "name": "Eger Panorama Hotel", "price": 24990, "stars": 4, "img": "https://i.szalas.hu/hotels/1442121/500x500/38044254.jpg", "street": "Dobó tér 1" },
+            { "id": 62, "name": "Borászat Vendégház", "price": 18500, "stars": 3, "img": "https://www.szallasvadasz.hu/hotel-flora-eger/images/hotel-flora-eger-379215-1000x500.webp", "street": "Szépasszony utca 12" },
+            { "id": 63, "name": "Eger View Resort", "price": 32990, "stars": 5, "img": "https://pic.szallaskeres.hu/296x227/bocskai-apartman-eger-apartman--67546.jpg", "street": "Kossuth Lajos utca 5" },
+            { "id": 64, "name": "Napfény Vendégház", "price": 15990, "stars": 3, "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/223265822.jpg?k=6a30c079d95719889eb03f57e7439749a8bc5648499fa484020134d89945f920&o=", "street": "Árok utca 8" },
+            { "id": 65, "name": "Luxury Eger Suites", "price": 45990, "stars": 5, "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSyi3QXYFHtlFGiU485bV39zU8BloY0kuKtcw&s", "street": "Rákóczi utca 3" },
+            { "id": 66, "name": "Kék Hullám Hotel", "price": 27990, "stars": 4, "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSvT-T708-rH6DPxK93KkLdAqctkr7oGGqyaw&s", "street": "Cifrakapu utca 10" },
+            { "id": 67, "name": "Panoráma Apartman", "price": 19990, "stars": 4, "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSSoIcoiUIrQJi4BzQNSwJoNsLnFzw02Etbxw&s", "street": "Egri út 15" },
+            { "id": 68, "name": "Eger Relax House", "price": 21990, "stars": 4, "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSY82q7BNR3aTQX1qoqOJDZk6b95Zg2_X-pQQ&s", "street": "Lajos utca 6" },
+            { "id": 69, "name": "Boutique Eger Hotel", "price": 34990, "stars": 5, "img": "https://i.szalas.hu/hotels/466714/500x500/37905564.jpg", "street": "Tárkányi utca 9" },
+            { "id": 70, "name": "Levendula Garden", "price": 17990, "stars": 3, "img": "https://pic.szallaskeres.hu/egeri-sz%C3%A1ll%C3%A1sok--14227.jpg", "street": "Kálvária utca 4" },
+            { "id": 71, "name": "Naplemente Hotel", "price": 28990, "stars": 4, "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSVDLPNKu0dHRrCBAaGQNl_6PEUnbTGsyFh7Q&s", "street": "Dobó István utca 7" },
+            { "id": 72, "name": "Eger Breeze", "price": 23990, "stars": 4, "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTCtcpdmNeTWWjDrVtcCdke_4wV60hMGVp0yA&s", "street": "Gróf utca 5" },
+            { "id": 73, "name": "Relax Apartman", "price": 16990, "stars": 3, "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSKxJvpNEdc7-Qv14ivPiKi2S-IetRmkr5CIQ&s", "street": "Széchenyi utca 2" },
+            { "id": 74, "name": "Premium Wellness Hotel", "price": 39990, "stars": 5, "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRTP61fNUNDxkA2WPom2s30rfrfUCTpkPM6sA&s", "street": "Fürdő utca 3" },
+            { "id": 75, "name": "Kikötő Hotel", "price": 25990, "stars": 4, "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS-YLknk4lLJeFVfp4LkKZkvHj_Sm7KU3tFAw&s", "street": "Kossuth tér 1" },
+            { "id": 76, "name": "Levél Villa", "price": 20990, "stars": 4, "img": "", "street": "Villapark utca 8" },
+            { "id": 77, "name": "Tóparti Apartman", "price": 18990, "stars": 3, "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQWvG5gUUchvQJUleiZO_CaCHgo0CclRXTfkQ&s", "street": "Tópart utca 11" },
+            { "id": 78, "name": "Eger Elite Resort", "price": 49990, "stars": 5, "img": "https://pic.szallaskeres.hu/296x227/%C3%A9letfa-vend%C3%A9gh%C3%A1z-eger-sz%C3%A1ll%C3%A1s--15310.jpg", "street": "Elite utca 4" },
+            { "id": 79, "name": "Csendes Pihenő", "price": 14990, "stars": 3, "img": "https://www.balcsi-apartman.hu/wp-content/uploads/2025/01/Eger-szallas-felpanzioval.jpg", "street": "Csend utca 6" },
+            { "id": 80, "name": "Grand Eger Hotel", "price": 36990, "stars": 5, "img": "https://www.ittjartam.hu/eger/szallasok/hotel-villa-volgy/hotel-villa-volgy-205941-255x280.webp", "street": "Grand tér 8" }
+        ];
 
-function renderHotels() {
-    const container = document.getElementById("hotels");
-    hotels.forEach(h => {
-        let stars = "⭐".repeat(h.stars);
-        container.innerHTML += `
+        function renderHotels() {
+            const container = document.getElementById("hotels");
+            hotels.forEach(h => {
+                let stars = "⭐".repeat(h.stars);
+                container.innerHTML += `
         <div class="hotel-card">
             <img src="${h.img}" class="hotel-img">
             <div class="flex-grow-1">
@@ -59,18 +87,25 @@ function renderHotels() {
                 <i class="bi bi-heart favorite" onclick="toggleFav('${h.name}', ${h.price}, '${h.img}')"></i>
             </div>
         </div>`;
-    });
-}
+            });
+        }
 
-function toggleFav(name, price, img) {
-    let favs = JSON.parse(localStorage.getItem("favs")) || [];
-    let index = favs.findIndex(f => f.name === name);
-    if (index > -1) { favs.splice(index, 1); alert("Eltávolítva"); }
-    else { favs.push({name, price, img}); alert("Hozzáadva"); }
-    localStorage.setItem("favs", JSON.stringify(favs));
-}
+        function toggleFav(name, price, img) {
+            let favs = JSON.parse(localStorage.getItem("favs")) || [];
+            let index = favs.findIndex(f => f.name === name);
+            if (index > -1) { favs.splice(index, 1); alert("Eltávolítva"); }
+            else { favs.push({ name, price, img }); alert("Hozzáadva"); }
+            localStorage.setItem("favs", JSON.stringify(favs));
+        }
 
-renderHotels();
-</script>
+        renderHotels();
+    </script>
+    <footer id="js-footer"></footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/hu.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="script/script.js"></script>
 </body>
+
 </html>
