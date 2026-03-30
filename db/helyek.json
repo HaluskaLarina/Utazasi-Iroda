@@ -1,122 +1,162 @@
 [
-{ "id": 1,
-  "name": "Panoráma Hotel", 
-  "price": 24990, 
-  "stars": 4, 
-  "img": "https://picsum.photos/id/1018/400/300"
-},
-{ "id": 2,
-  "name": "Levendula Apartman", 
-  "price": 18500, 
-  "stars": 3, 
-  "img": "https://picsum.photos/id/1025/400/300"
-},
-{ "id": 3,
-  "name": "Balaton View Resort", 
-  "price": 32990, 
-  "stars": 5, 
-  "img": "https://picsum.photos/id/1031/400/300"
-},
-{ "id": 4,
-  "name": "Napfény Vendégház",
-  "price": 15990, 
-  "stars": 3, 
-  "img": "https://picsum.photos/id/1043/400/300"
-},
-{ "id": 5,
-  "name": "Luxury Tihany Suites", 
-  "price": 45990, 
-  "stars": 5, 
-  "img": "https://picsum.photos/id/1050/400/300"
-},
-{ "id": 6,
-  "name": "Kék Hullám Hotel", 
-  "price": 27990, 
-  "stars": 4,
-  "img": "https://picsum.photos/id/1067/400/300"
-},
-{ "id": 7,
-  "name": "Panoráma Apartman", 
-  "price": 19990, 
-  "stars": 4, 
-  "img": "https://picsum.photos/id/1076/400/300"
-},
-{ "id": 8,
-  "name": "Balaton Relax House", 
-  "price": 21990, 
-  "stars": 4, 
-  "img": "https://picsum.photos/id/1084/400/300"
-},
-{ "id": 9,
-  "name": "Tihany Boutique Hotel", 
-  "price": 34990, 
-  "stars": 5, 
-  "img": "https://picsum.photos/id/1080/400/300"
-},
-{ "id": 10,
-  "name": "Levendula Garden", 
-  "price": 17990, 
-  "stars": 3, 
-  "img": "https://picsum.photos/id/109/400/300"
-},
-{ "id": 11,
-  "name": "Naplemente Hotel", 
-  "price": 28990, 
-  "stars": 4, 
-  "img": "https://picsum.photos/id/110/400/300"
-},
-{ "id": 12,
-  "name": "Balaton Breeze", 
-  "price": 23990, 
-  "stars": 4, 
-  "img": "https://picsum.photos/id/111/400/300"
-},
-{ "id": 13,
-  "name": "Tihany Relax Apartman", 
-  "price": 16990,
-  "stars": 3, 
-  "img": "https://picsum.photos/id/112/400/300"
-},
-{ "id": 14,
-  "name": "Premium Wellness Hotel", 
-  "price": 39990, 
-  "stars": 5, 
-  "img": "https://picsum.photos/id/113/400/300"
-},
-{ "id": 15,
-  "name": "Kikötő Hotel", 
-  "price": 25990, 
-  "stars": 4, 
-  "img": "https://picsum.photos/id/114/400/300"
-},
-{ "id": 16,
-  "name": "Levél Villa", 
-  "price": 20990, 
-  "stars": 4, 
-  "img": "https://picsum.photos/id/115/400/300"
-},
-{ "id": 17,
-  "name": "Tóparti Apartman", 
-  "price": 18990, 
-  "stars": 3, 
-  "img": "https://picsum.photos/id/116/400/300"
-},
-{ "id": 18,
-  "name": "Balaton Elite Resort", 
-  "price": 49990, 
-  "stars": 5, 
-  "img": "https://picsum.photos/id/117/400/300"
-},
-{ "id": 19,
-  "name": "Csendes Pihenő", 
-  "price": 14990, 
-  "stars": 3, 
-  "img": "https://picsum.photos/id/118/400/300"
-},
-{ "id": 20,
-  "name": "Tihany Grand Hotel", 
-  "price": 36990, 
-  "stars": 5, 
-  "img": "../img/face.jpg"
-}
+  {
+    "id": "B01",
+    "hely": "Budapest",
+    "orszag": "Magyarország",
+    "ertekeles": 4.9,
+    "kategoria": "Városnézés",
+    "poszter": "./img/Budapest.jpg"
+  },
+  {
+    "id": "B02",
+    "hely": "Szentendre",
+    "orszag": "Magyarország",
+    "ertekeles": 4.7,
+    "kategoria": "Kultúra",
+    "poszter": "./img/szentendre.jpg"
+  },
+  {
+    "id": "B03",
+    "hely": "Visegrád",
+    "orszag": "Magyarország",
+    "ertekeles": 4.8,
+    "kategoria": "Történelem",
+    "poszter": "./img/visegrad.jpg"
+  },
+  {
+    "id": "B04",
+    "hely": "Esztergom",
+    "orszag": "Magyarország",
+    "ertekeles": 4.6,
+    "kategoria": "Vallás",
+    "poszter": "./img/esztergom.jpg"
+  },
+  {
+    "id": "B05",
+    "hely": "Tihany",
+    "orszag": "Magyarország",
+    "ertekeles": 4.9,
+    "kategoria": "Balaton",
+    "poszter": "./img/tihany.jpg"
+  },
+  {
+    "id": "B06",
+    "hely": "Balatonfüred",
+    "orszag": "Magyarország",
+    "ertekeles": 4.7,
+    "kategoria": "Balaton",
+    "poszter": "./img/balatonfured.jpg"
+  },
+  {
+    "id": "B07",
+    "hely": "Badacsony",
+    "orszag": "Magyarország",
+    "ertekeles": 4.8,
+    "kategoria": "Gasztronómia",
+    "poszter": "./img/badacsony.jpg"
+  },
+  {
+    "id": "B08",
+    "hely": "Hévíz",
+    "orszag": "Magyarország",
+    "ertekeles": 4.9,
+    "kategoria": "Wellness",
+    "poszter": "./img/heviz.jpg"
+  },
+  {
+    "id": "B09",
+    "hely": "Keszthely",
+    "orszag": "Magyarország",
+    "ertekeles": 4.7,
+    "kategoria": "Kultúra",
+    "poszter": "./img/keszthely.jpg"
+  },
+  {
+    "id": "B10",
+    "hely": "Siófok",
+    "orszag": "Magyarország",
+    "ertekeles": 4.5,
+    "kategoria": "Szórakozás",
+    "poszter": "./img/siofok.jpg"
+  },
+  {
+    "id": "K01",
+    "hely": "Róma",
+    "orszag": "Olaszország",
+    "ertekeles": 4.9,
+    "kategoria": "Történelem",
+    "poszter": "./img/roma.jpg"
+  },
+  {
+    "id": "K02",
+    "hely": "Párizs",
+    "orszag": "Franciaország",
+    "ertekeles": 4.8,
+    "kategoria": "Romantika",
+    "poszter": "./img/paris2.jpg"
+  },
+  {
+    "id": "K03",
+    "hely": "London",
+    "orszag": "Egyesült Királyság",
+    "ertekeles": 4.7,
+    "kategoria": "Metropolisz",
+    "poszter": "./img/london.jpg"
+  },
+  {
+    "id": "K04",
+    "hely": "Barcelona",
+    "orszag": "Spanyolország",
+    "ertekeles": 4.9,
+    "kategoria": "Tengerpart",
+    "poszter": "./img/varcelona.jpg"
+  },
+  {
+    "id": "K05",
+    "hely": "Prága",
+    "orszag": "Csehország",
+    "ertekeles": 4.8,
+    "kategoria": "Városnézés",
+    "poszter": "./img/praga.jpg"
+  },
+  {
+    "id": "K06",
+    "hely": "Bécs",
+    "orszag": "Ausztria",
+    "ertekeles": 4.7,
+    "kategoria": "Kultúra",
+    "poszter": "./img/becs.jpg"
+  },
+  {
+    "id": "K07",
+    "hely": "Amszterdam",
+    "orszag": "Hollandia",
+    "ertekeles": 4.8,
+    "kategoria": "Életstílus",
+    "poszter": "./img/amsterdam.jpg"
+  },
+  {
+    "id": "K08",
+    "hely": "Velence",
+    "orszag": "Olaszország",
+    "ertekeles": 4.9,
+    "kategoria": "Romantika",
+    "poszter": "./img/velence.jpg"
+  },
+  {
+    "id": "K09",
+    "hely": "Firenze",
+    "orszag": "Olaszország",
+    "ertekeles": 4.9,
+    "kategoria": "Művészet",
+    "poszter": "./img/firenze.jpg"
+  },
+  {
+    "id": "K10",
+    "hely": "Madrid",
+    "orszag": "Spanyolország",
+    "ertekeles": 4.7,
+    "kategoria": "Kultúra",
+    "poszter": "./img/madrid.jpg"
+  }
 ]
