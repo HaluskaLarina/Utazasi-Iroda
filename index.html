@@ -251,6 +251,9 @@
 <input type="text" id="keresoInput" placeholder="pl. Tihany">
 <button id="keresoBtn">Keresés</button>
 
+
+
+<!-- kereso -->
 <script>
 const helyek = {
     "tihany": "tihany.html",
@@ -268,29 +271,33 @@ function normalizal(szoveg) {
 }
 
 function kereses() {
-    let helyInput = normalizal(document.getElementById("keresoInput").value);
-    let erkezes = document.getElementById("erkezes").value;
-    let tavozas = document.getElementById("tavozas").value;
+    let helyInput = normalizal(document.getElementById("helyInput").value);
+    let dateRange = document.getElementById("dateRange").value;
     let fo = document.getElementById("fo").value;
 
 
-    if (!erkezes || !tavozas) {
+    if (!dateRange) {
         alert("Válassz dátumot!");
         return;
     }
 
-    if (erkezes > tavozas) {
-        alert("Az érkezés nem lehet később, mint a távozás!");
+    let dates = dateRange.split(" to ");
+    if (dates.length < 2) {
+        dates = dateRange.split(" - ");
+    }
+
+    let erkezes = dates[0];
+    let tavozas = dates[1];
+
+    if (!erkezes || !tavozas) {
+        alert("Hibás dátum!");
         return;
     }
 
-    // 🔍 keresés
+  
     for (let hely in helyek) {
         if (helyInput.includes(hely)) {
-
-            // 👉 adatok átadása URL-ben
-            let url = `${helyek[hely]}?erkezes=${erkezes}&tavozas=${tavozas}&fo=${fo}`;
-            window.location.href = url;
+            window.location.href = `${helyek[hely]}?erkezes=${erkezes}&tavozas=${tavozas}&fo=${fo}`;
             return;
         }
     }
@@ -298,11 +305,7 @@ function kereses() {
     alert("Nincs találat 😕");
 }
 
-// gomb
-document.getElementById("keresoBtn").addEventListener("click", kereses);
-
-// ENTER
-document.getElementById("keresoInput").addEventListener("keydown", function(e) {
+document.getElementById("helyInput").addEventListener("keydown", function(e) {
     if (e.key === "Enter") {
         kereses();
     }

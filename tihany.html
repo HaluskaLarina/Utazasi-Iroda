@@ -38,6 +38,7 @@
 </head>
 
 <body class="container py-4">
+    <header id="js-navbar"></header>
 <h1 class="mb-4">Tihany szállások</h1>
 
 <div id="hotels"></div>
@@ -78,7 +79,7 @@ img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS11vFwrcQMwMWJdm3u9n
 { name: "Panoráma Apartman", 
 price: 19990, 
 stars: 4, 
-img: "" 
+img: "https://i.szalas.hu/hotels/1448294/original/37889091.jpg" 
 },
 { name: "Balaton Relax House", 
 price: 21990, 
@@ -88,7 +89,7 @@ img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRwUQQreIk35XueQnNYJo
 { name: "Tihany Boutique Hotel", 
 price: 34990, 
 stars: 5, 
-img: "" 
+img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTNvPMbcb9uPwBw8fOiMASogI0ej5wY453F5Q&s" 
 },
 { name: "Levendula Garden", 
 price: 17990, 
@@ -98,17 +99,17 @@ img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTbJ5FPqlPwrGheumrJS7
 { name: "Naplemente Hotel", 
 price: 28990, 
 stars: 4, 
-img: "" 
+img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQRcviSrU4RxmOmhUjiA5uBau9CUusFmtEwZw&s" 
 },
 { name: "Balaton Breeze", 
 price: 23990, 
 stars: 4, 
-img: "" 
+img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRSwaFArFB9y5Aeab-Fg-u-UEASde0LvdlZyA&s" 
 },
 { name: "Tihany Relax Apartman", 
 price: 16990,
  stars: 3, 
-img: "" 
+img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSRXuZR5mFiVJQJUwd1y7Jm5HoPIVE378mYKQ&s" 
 },
 { name: "Premium Wellness Hotel", 
 price: 39990, 
@@ -189,6 +190,11 @@ function toggleFav(name, price, img) {
 
 renderHotels();
 </script>
+<footer id="js-footer"></footer>
 
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/hu.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="script/script.js"></script>
 </body>
 </html>
