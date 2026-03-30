@@ -95,3 +95,39 @@ document.querySelector(".contact-form").addEventListener("submit", function(e) {
 });
 
 
+
+flatpickr("#dateRange", {
+    mode: "range",            // KÉT dátum kiválasztása
+    minDate: "today",         // múlt tiltva
+    dateFormat: "Y. m. d.",   // szebb magyar formátum
+    locale: "hu",             // magyar nyelv
+    showMonths: 2,            // KÉT HÓNAP egyszerre (mint booking!)
+    
+    onClose: function(selectedDates, dateStr) {
+        if (selectedDates.length === 2) {
+            console.log("Érkezés:", selectedDates[0]);
+            console.log("Távozás:", selectedDates[1]);
+        }
+    }
+});
+keresesGomb: null,
+elemek.keresesGomb = document.getElementById("keresesGomb");
+// kereses
+function keresesHelyek() {
+    const keresendo = elemek.keresoInput.value.toLowerCase().trim();
+
+    if (keresendo === '') {
+        uzenetMutatasa('Kérlek adj meg egy hely nevet!', 'warning');
+        return;
+    }
+    //some() legalább egy eleme megfelel-e a feltételnek
+    szurtFilmek = filmek.filter(film =>
+        film.helyek.some(hely =>
+            hely.toLowerCase().includes(keresendo)
+        )
+    );
+
+
+    uzenetMutatasa(`${szurtFilmek.length} film találat a keresésre.`, 'info');
+    elemek.keresoInput.value = '';
+}

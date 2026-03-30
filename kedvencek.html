@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+<meta charset="UTF-8">
+<title>Kedvencek</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body class="container py-4">
+
+<h1>Kedvencek</h1>
+<div id="list"></div>
+
+<script>
+function loadFavs() {
+    let favs = JSON.parse(localStorage.getItem("favs")) || [];
+    let container = document.getElementById("list");
+
+    container.innerHTML = "";
+
+    favs.forEach((f, i) => {
+        container.innerHTML += `
+        <div class="hotel-card">
+            <img src="${f.img}" class="hotel-img">
+
+            <div class="flex-grow-1">
+                <h5>${f.name}</h5>
+                <div class="price">${f.price} Ft / éj</div>
+            </div>
+
+            <button class="btn btn-danger" onclick="removeFav(${i})">Törlés</button>
+        </div>
+        `;
+    });
+}
+
+function removeFav(i) {
+    let favs = JSON.parse(localStorage.getItem("favs"));
+    favs.splice(i, 1);
+    localStorage.setItem("favs", JSON.stringify(favs));
+    loadFavs();
+}
+
+loadFavs();
+</script>
+</body>
+</html>
