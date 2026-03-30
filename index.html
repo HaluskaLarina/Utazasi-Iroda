@@ -19,37 +19,41 @@
     <div class="hero-overlay"></div>
 
     <div class="hero-content text-center text-white">
-        <h1>Találd meg álmaid szállását!</h1>
-        <p>Fedezd fel Magyarország mesés tájait!</p>
+    <h1>Találd meg álmaid szállását!</h1>
+    <p>Fedezd fel Magyarország mesés tájait!</p>
 
-        <div class="search-bar">
+    <div class="search-bar">
 
-            <div class="search-item">
-                <i class="bi bi-geo-alt"></i>
-                <input type="text" placeholder="pl. Tihany">
-            </div>
-
-            <div class="search-item">
-                <i class="bi bi-calendar"></i>
-                <input type="text" id="dateRange" placeholder="Érkezés - Távozás">
-            </div>
-
-            <div class="search-item">
-                <i class="bi bi-people"></i>
-                <select>
-                    <option>2 fő</option>
-                    <option>1 fő</option>
-                    <option>3 fő</option>
-                    <option>4 fő</option>
-                </select>
-            </div>
-
-            <button class="search-btn" onclick="kereses()">
-                <i class="bi bi-search"></i> Keresés
-            </button>
-
+        <div class="search-item">
+            <i class="bi bi-geo-alt"></i>
+            <input type="text" id="helyInput" placeholder="pl. Tihany">
         </div>
+
+        <div class="search-item">
+            <i class="bi bi-calendar"></i>
+            <input type="text" id="dateRange" placeholder="Érkezés - Távozás">
+        </div>
+
+        <div class="search-item">
+            <i class="bi bi-people"></i>
+            <select id="fo">
+                <option value="2">2 fő</option>
+                <option value="1">1 fő</option>
+                <option value="3">3 fő</option>
+                <option value="4">4 fő</option>
+            </select>
+        </div>
+
+        <button class="search-btn" onclick="kereses()">
+            <i class="bi bi-search"></i> Keresés
+        </button>
+
     </div>
+</div>
+
+<script>
+
+</script>
 </section>
 
     <h1 class="text-center legnep">Legnépszerűbb helyek</h1>
@@ -244,59 +248,66 @@
     </div>
 </section>
 
+<input type="text" id="keresoInput" placeholder="pl. Tihany">
+<button id="keresoBtn">Keresés</button>
+
+<script>
+const helyek = {
+    "tihany": "tihany.html",
+    "miskolc": "miskolc.html",
+    "balatonboglar": "balatonboglar.html",
+    "eger": "eger.html",
+    "nyiregyhaza": "nyiregyhaza.html"
+};
+
+function normalizal(szoveg) {
+    return szoveg
+        .toLowerCase()
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, "");
+}
+
+function kereses() {
+    let helyInput = normalizal(document.getElementById("keresoInput").value);
+    let erkezes = document.getElementById("erkezes").value;
+    let tavozas = document.getElementById("tavozas").value;
+    let fo = document.getElementById("fo").value;
 
 
- <div class="modal fade" id="keresoModal" tabindex="-1">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title">
-            <span class="bi bi-search"></span> Keresés szereplők szerint
-        </h5>
-        <button type="button" class="btn-close btn-close white" data-bs-dismiss="modal"></button>
-      </div>
-      <div class="modal-body">
-        <div class="mb-3">
-            <label for="keresoInput" class="form-label">Szereplő neve</label>
-            <input type="text" class="form-control" id="keresoInput" placeholder="Kezdd el gépelni a szereplő nevét">
-        </div>
-        <div class="alert alert-info">
-            <span class=" bi bi-info-circle"></span> A keresés a szereplők nevében keres részleges egyezést.
-        </div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Bezár</button>
-        <button type="button" class="btn btn-primary bi bi-search" id="keresesGomb">Keresés</button>
-      </div>
-    </div>
-  </div>
-</div>
+    if (!erkezes || !tavozas) {
+        alert("Válassz dátumot!");
+        return;
+    }
 
-<div class="modal fade" id="keresoModal" tabindex="-1">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title">
-            <span class="bi bi-search"></span> Keresés helyek szerint
-        </h5>
-        <button type="button" class="btn-close btn-close white" data-bs-dismiss="modal"></button>
-      </div>
-      <div class="modal-body">
-        <div class="mb-3">
-            <label for="keresoInput" class="form-label">Hely neve</label>
-            <input type="text" class="form-control" id="keresoInput" placeholder="Kezdd el gépelni a szereplő nevét">
-        </div>
-        <div class="alert alert-info">
-            <span class=" bi bi-info-circle"></span> A keresés a helyeknél keres részleges egyezést.
-        </div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Bezár</button>
-        <button type="button" class="btn btn-primary bi bi-search" id="keresesGomb">Keresés</button>
-      </div>
-    </div>
-  </div>
-</div>
+    if (erkezes > tavozas) {
+        alert("Az érkezés nem lehet később, mint a távozás!");
+        return;
+    }
+
+    // 🔍 keresés
+    for (let hely in helyek) {
+        if (helyInput.includes(hely)) {
+
+            // 👉 adatok átadása URL-ben
+            let url = `${helyek[hely]}?erkezes=${erkezes}&tavozas=${tavozas}&fo=${fo}`;
+            window.location.href = url;
+            return;
+        }
+    }
+
+    alert("Nincs találat 😕");
+}
+
+// gomb
+document.getElementById("keresoBtn").addEventListener("click", kereses);
+
+// ENTER
+document.getElementById("keresoInput").addEventListener("keydown", function(e) {
+    if (e.key === "Enter") {
+        kereses();
+    }
+});
+</script>
 
 
     <footer id="js-footer"></footer>
