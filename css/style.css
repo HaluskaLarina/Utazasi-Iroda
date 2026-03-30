@@ -1,7 +1,7 @@
 body {
   margin: 0;
   font-family: Arial, sans-serif;
-  background-color: #bbd6e9;
+  background-color: #c1b193ff;
 }
 
 /* Swiper alap */
@@ -91,6 +91,7 @@ body {
 .swiper-slide-active:hover img {
   transform: scale(1.2) rotate(-180deg);
 }
+
 
 .swiper-slide-active:hover .show-more {
   opacity: 1;
@@ -191,3 +192,16 @@ footer {
     cursor: pointer;
 }
 
+/* velemenyek */
+.col-md-4{
+  background-color: #cfc6abff;
+}
+
+.tovabb{
+  background-color: #aa9f7cff;
+  color: black;
+}
+
+.velemeny{
+   background-color: #cfc6abff;
+}
