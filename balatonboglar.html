@@ -2,25 +2,51 @@
 <html lang="hu">
 
 <head>
-<meta charset="UTF-8">
-<title>Balatonboglár szállások</title>
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <meta charset="UTF-8">
+    <title>Balatonboglár szállások</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
-    
-<style>
-.hotel-card { display: flex; gap: 20px; padding: 15px; border: 1px solid #ddd; border-radius: 12px; margin-bottom: 20px; transition: 0.3s; }
-.hotel-card:hover { box-shadow: 0 5px 20px rgba(0,0,0,0.1); }
-.hotel-img { width: 250px; height: 160px; object-fit: cover; border-radius: 10px; }
-.price { font-size: 20px; font-weight: bold; color: #0d6efd; }
-.favorite { cursor: pointer; font-size: 22px; }
-</style>
+
+    <style>
+        .hotel-card {
+            display: flex;
+            gap: 20px;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            transition: 0.3s;
+        }
+
+        .hotel-card:hover {
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .hotel-img {
+            width: 250px;
+            height: 160px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        .price {
+            font-size: 20px;
+            font-weight: bold;
+            color: #0d6efd;
+        }
+
+        .favorite {
+            cursor: pointer;
+            font-size: 22px;
+        }
+    </style>
 </head>
 
 <body class="container py-4">
-  <header id="js-navbar"></header>
-<h1 class="mb-4">Balatonboglár szállások</h1>
-<div id="hotels"></div>
-<a href="kedvencek.html" class="btn btn-primary mt-3">❤️ Kedvencek</a>
+    <header id="js-navbar"></header>
+    <h1 class="mb-4">Balatonboglár szállások</h1>
+    <div id="hotels"></div>
+    <a href="kedvencek.html" class="btn btn-primary mt-3">❤️ Kedvencek</a>
 
     <script>
         const hotels = [
@@ -214,9 +240,9 @@
             localStorage.setItem("favs", JSON.stringify(favs));
         }
 
-renderHotels();
-</script>
-<footer id="js-footer"></footer>
+        renderHotels();
+    </script>
+    <footer id="js-footer"></footer>
     <script src="script/script.js"></script>
 </body>
 

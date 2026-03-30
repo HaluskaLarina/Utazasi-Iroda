@@ -1,166 +1,192 @@
 <!DOCTYPE html>
 <html lang="hu">
-<head>
-<meta charset="UTF-8">
-<title>Tihany szállások</title>
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
 
-<style>
-.hotel-card {
-    display: flex;
-    gap: 20px;
-    padding: 15px;
-    border: 1px solid #ddd;
-    border-radius: 12px;
-    margin-bottom: 20px;
-    transition: 0.3s;
-}
-.hotel-card:hover {
-    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-}
-.hotel-img {
-    width: 250px;
-    height: 160px;
-    object-fit: cover;
-    border-radius: 10px;
-}
-.price {
-    font-size: 20px;
-    font-weight: bold;
-    color: #0d6efd;
-}
-.favorite {
-    cursor: pointer;
-    font-size: 22px;
-}
-</style>
+<head>
+    <meta charset="UTF-8">
+    <title>Tihany szállások</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+
+    <style>
+        .hotel-card {
+            display: flex;
+            gap: 20px;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            transition: 0.3s;
+        }
+
+        .hotel-card:hover {
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .hotel-img {
+            width: 250px;
+            height: 160px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        .price {
+            font-size: 20px;
+            font-weight: bold;
+            color: #0d6efd;
+        }
+
+        .favorite {
+            cursor: pointer;
+            font-size: 22px;
+        }
+    </style>
 </head>
 
 <body class="container py-4">
     <header id="js-navbar"></header>
-<h1 class="mb-4">Tihany szállások</h1>
+    <h1 class="mb-4">Tihany szállások</h1>
 
-<div id="hotels"></div>
+    <div id="hotels"></div>
 
-<a href="kedvencek.html" class="btn btn-primary mt-3">❤️ Kedvencek</a>
+    <a href="kedvencek.html" class="btn btn-primary mt-3">❤️ Kedvencek</a>
 
-<script>
-const hotels = [
-{ name: "Panoráma Hotel", 
-price: 24990, 
-stars: 4, 
-img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRprkw6XanDEq1GPoRh-CwL0CKHDkuJHtIW-Q&s" 
-},
-{ name: "Levendula Apartman", 
-price: 18500, 
-stars: 3, 
-img: "https://i.szalas.hu/hotels/1448294/original/37889091.jpg"
-},
-{ name: "Balaton View Resort", 
-price: 32990, stars: 5, 
-img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQOjy63dojzjB0Q36XtlyQsyyGHDkLhQHOMQg&s" 
-},
-{ name: "Napfény Vendégház",
- price: 15990, 
-stars: 3, 
-img: "https://i.szalas.hu/hotels/1554761/500x500/40714812.jpg" 
-},
-{ name: "Luxury Tihany Suites", 
-price: 45990, 
-stars: 5, 
-img: "https://myszallas.com/szallas/szallas_8b730cd392ec436d0c85a0af6628f95d_1.jpg" 
-},
-{ name: "Kék Hullám Hotel", 
-price: 27990, 
-stars: 4,
-img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS11vFwrcQMwMWJdm3u9n07sLGjycPqOnr2hg&s" 
-},
-{ name: "Panoráma Apartman", 
-price: 19990, 
-stars: 4, 
-img: "https://i.szalas.hu/hotels/1448294/original/37889091.jpg" 
-},
-{ name: "Balaton Relax House", 
-price: 21990, 
-stars: 4, 
-img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRwUQQreIk35XueQnNYJoeVCNI2ntP0eep5ow&s" 
-},
-{ name: "Tihany Boutique Hotel", 
-price: 34990, 
-stars: 5, 
-img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTNvPMbcb9uPwBw8fOiMASogI0ej5wY453F5Q&s" 
-},
-{ name: "Levendula Garden", 
-price: 17990, 
-stars: 3, 
-img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTbJ5FPqlPwrGheumrJS7uBAhJRwXDmkAtstw&s" 
-},
-{ name: "Naplemente Hotel", 
-price: 28990, 
-stars: 4, 
-img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQRcviSrU4RxmOmhUjiA5uBau9CUusFmtEwZw&s" 
-},
-{ name: "Balaton Breeze", 
-price: 23990, 
-stars: 4, 
-img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRSwaFArFB9y5Aeab-Fg-u-UEASde0LvdlZyA&s" 
-},
-{ name: "Tihany Relax Apartman", 
-price: 16990,
- stars: 3, 
-img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSRXuZR5mFiVJQJUwd1y7Jm5HoPIVE378mYKQ&s" 
-},
-{ name: "Premium Wellness Hotel", 
-price: 39990, 
-stars: 5, 
-img: "https://cf.bstatic.com/xdata/images/hotel/max1024x768/549925082.jpg?k=5bf1a4d8f6ee5d6f3865a12b4137b816a703b8636d1163298dabd7bad6639aae&o=" 
-},
-{ name: "Kikötő Hotel", 
-price: 25990, 
-stars: 4, 
-img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQDyAoSCPP63D2XjZPVnrUEgk7CtRxNSeveWQ&s" 
-},
-{ name: "Levél Villa", 
-price: 20990, 
-stars: 4, 
-img: "https://www.wellnessszallodakhotelek.hu/hotel_pic/hotel-echo-residence-tihany/b-szabad-szallas-tihanyban-hotel-echo-residence-tihany.jpg" 
-},
-{ name: "Tóparti Apartman", 
-price: 18990, 
-stars: 3, 
-img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTyqZ8vT0Dgu2Wonmse-9AIkoQuC1DGrDusSg&s" 
-},
-{ name: "Balaton Elite Resort", 
-price: 49990, 
-stars: 5, 
-img: "https://utazzitthon.hu/images/szallas/3043/kozepeskep/oliver-lux-tihany-3043-Yc44geqygt-ov1_kozepesmobil.webp" 
-},
-{ name: "Csendes Pihenő", 
-price: 14990, 
-stars: 3, 
-img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQtD84G9gq9d2PPt3YnYTOHQd0yDQa8-9rFlA&s" 
-},
-{ name: "Tihany Grand Hotel", 
-price: 36990, 
-stars: 5, 
-img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRSwaFArFB9y5Aeab-Fg-u-UEASde0LvdlZyA&s" }
-];
+    <script>
+        const hotels = [
+            {
+                name: "Panoráma Hotel",
+                price: 24990,
+                stars: 4,
+                img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRprkw6XanDEq1GPoRh-CwL0CKHDkuJHtIW-Q&s"
+            },
+            {
+                name: "Levendula Apartman",
+                price: 18500,
+                stars: 3,
+                img: "https://i.szalas.hu/hotels/1448294/original/37889091.jpg"
+            },
+            {
+                name: "Balaton View Resort",
+                price: 32990, stars: 5,
+                img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQOjy63dojzjB0Q36XtlyQsyyGHDkLhQHOMQg&s"
+            },
+            {
+                name: "Napfény Vendégház",
+                price: 15990,
+                stars: 3,
+                img: "https://i.szalas.hu/hotels/1554761/500x500/40714812.jpg"
+            },
+            {
+                name: "Luxury Tihany Suites",
+                price: 45990,
+                stars: 5,
+                img: "https://myszallas.com/szallas/szallas_8b730cd392ec436d0c85a0af6628f95d_1.jpg"
+            },
+            {
+                name: "Kék Hullám Hotel",
+                price: 27990,
+                stars: 4,
+                img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS11vFwrcQMwMWJdm3u9n07sLGjycPqOnr2hg&s"
+            },
+            {
+                name: "Panoráma Apartman",
+                price: 19990,
+                stars: 4,
+                img: "https://i.szalas.hu/hotels/1448294/original/37889091.jpg"
+            },
+            {
+                name: "Balaton Relax House",
+                price: 21990,
+                stars: 4,
+                img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRwUQQreIk35XueQnNYJoeVCNI2ntP0eep5ow&s"
+            },
+            {
+                name: "Tihany Boutique Hotel",
+                price: 34990,
+                stars: 5,
+                img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTNvPMbcb9uPwBw8fOiMASogI0ej5wY453F5Q&s"
+            },
+            {
+                name: "Levendula Garden",
+                price: 17990,
+                stars: 3,
+                img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTbJ5FPqlPwrGheumrJS7uBAhJRwXDmkAtstw&s"
+            },
+            {
+                name: "Naplemente Hotel",
+                price: 28990,
+                stars: 4,
+                img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQRcviSrU4RxmOmhUjiA5uBau9CUusFmtEwZw&s"
+            },
+            {
+                name: "Balaton Breeze",
+                price: 23990,
+                stars: 4,
+                img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRSwaFArFB9y5Aeab-Fg-u-UEASde0LvdlZyA&s"
+            },
+            {
+                name: "Tihany Relax Apartman",
+                price: 16990,
+                stars: 3,
+                img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSRXuZR5mFiVJQJUwd1y7Jm5HoPIVE378mYKQ&s"
+            },
+            {
+                name: "Premium Wellness Hotel",
+                price: 39990,
+                stars: 5,
+                img: "https://cf.bstatic.com/xdata/images/hotel/max1024x768/549925082.jpg?k=5bf1a4d8f6ee5d6f3865a12b4137b816a703b8636d1163298dabd7bad6639aae&o="
+            },
+            {
+                name: "Kikötő Hotel",
+                price: 25990,
+                stars: 4,
+                img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQDyAoSCPP63D2XjZPVnrUEgk7CtRxNSeveWQ&s"
+            },
+            {
+                name: "Levél Villa",
+                price: 20990,
+                stars: 4,
+                img: "https://www.wellnessszallodakhotelek.hu/hotel_pic/hotel-echo-residence-tihany/b-szabad-szallas-tihanyban-hotel-echo-residence-tihany.jpg"
+            },
+            {
+                name: "Tóparti Apartman",
+                price: 18990,
+                stars: 3,
+                img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTyqZ8vT0Dgu2Wonmse-9AIkoQuC1DGrDusSg&s"
+            },
+            {
+                name: "Balaton Elite Resort",
+                price: 49990,
+                stars: 5,
+                img: "https://utazzitthon.hu/images/szallas/3043/kozepeskep/oliver-lux-tihany-3043-Yc44geqygt-ov1_kozepesmobil.webp"
+            },
+            {
+                name: "Csendes Pihenő",
+                price: 14990,
+                stars: 3,
+                img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQtD84G9gq9d2PPt3YnYTOHQd0yDQa8-9rFlA&s"
+            },
+            {
+                name: "Tihany Grand Hotel",
+                price: 36990,
+                stars: 5,
+                img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRSwaFArFB9y5Aeab-Fg-u-UEASde0LvdlZyA&s"
+            }
+        ];
 
-function renderHotels() {
-    const container = document.getElementById("hotels");
+        function renderHotels() {
+            const container = document.getElementById("hotels");
 
-    hotels.forEach(h => {
-        let stars = "⭐".repeat(h.stars);
+            hotels.forEach(h => {
+                let stars = "⭐".repeat(h.stars);
 
-        container.innerHTML += `
+                container.innerHTML += `
         <div class="hotel-card">
             <img src="${h.img}" class="hotel-img">
 
             <div class="flex-grow-1">
                 <h5>${h.name}</h5>
                 <div class="text-warning">${stars}</div>
-                <p>Cím: Tihany, Fő utca ${Math.floor(Math.random()*50)+1}.</p>
+                <p>Cím: Tihany, Fő utca ${Math.floor(Math.random() * 50) + 1}.</p>
                 <div class="price">${h.price} Ft / éj</div>
             </div>
 
@@ -169,32 +195,33 @@ function renderHotels() {
             </div>
         </div>
         `;
-    });
-}
+            });
+        }
 
-function toggleFav(name, price, img) {
-    let favs = JSON.parse(localStorage.getItem("favs")) || [];
+        function toggleFav(name, price, img) {
+            let favs = JSON.parse(localStorage.getItem("favs")) || [];
 
-    let index = favs.findIndex(f => f.name === name);
+            let index = favs.findIndex(f => f.name === name);
 
-    if (index > -1) {
-        favs.splice(index, 1);
-        alert("Eltávolítva");
-    } else {
-        favs.push({name, price, img});
-        alert("Hozzáadva");
-    }
+            if (index > -1) {
+                favs.splice(index, 1);
+                alert("Eltávolítva");
+            } else {
+                favs.push({ name, price, img });
+                alert("Hozzáadva");
+            }
 
-    localStorage.setItem("favs", JSON.stringify(favs));
-}
+            localStorage.setItem("favs", JSON.stringify(favs));
+        }
 
-renderHotels();
-</script>
-<footer id="js-footer"></footer>
+        renderHotels();
+    </script>
+    <footer id="js-footer"></footer>
 
     <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/hu.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="script/script.js"></script>
 </body>
+
 </html>

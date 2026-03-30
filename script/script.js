@@ -1,31 +1,31 @@
 //header betoltese
 fetch("header.html")
-.then(response => response.text())
-.then(data => {
+  .then(response => response.text())
+  .then(data => {
     let he = document.getElementById("js-navbar");
     if (he) he.innerHTML = data;
-})
-.catch(error => console.error("Hiba a menü betöltődésekor!", error));
+  })
+  .catch(error => console.error("Hiba a menü betöltődésekor!", error));
 
 
 const elemek = {
-    helyMenu: null,
-    helyekSzama: null,
-    osszesHely: null,
-    toast: null,
-    toastMessage: null
+  helyMenu: null,
+  helyekSzama: null,
+  osszesHely: null,
+  toast: null,
+  toastMessage: null
 };
 //footer betoltese
 fetch("footer.html") // betölti az oldalt
-    .then(response => response.text()) // a fetch amikor visszaad egy választ (response), akkor lefut egy függvény, ami a response.text() értéket adja vissza
-    .then(data => {
-        let el = document.getElementById("js-footer").innerHTML = data;
-        if (el) el.innerHTML = data;
-    })
-    .catch(error => console.error("Hiba a lábléc betöltődésekor!", error));
+  .then(response => response.text()) // a fetch amikor visszaad egy választ (response), akkor lefut egy függvény, ami a response.text() értéket adja vissza
+  .then(data => {
+    let el = document.getElementById("js-footer").innerHTML = data;
+    if (el) el.innerHTML = data;
+  })
+  .catch(error => console.error("Hiba a lábléc betöltődésekor!", error));
 
 
-    setTimeout(() => {
+setTimeout(() => {
   let email2Input = document.getElementById("email2");
   let gomb2 = document.getElementById("feliratkozas2");
   let uzenet2 = document.getElementById("uzenet2");
@@ -45,7 +45,7 @@ fetch("footer.html") // betölti az oldalt
         gomb2.disabled = true;
         uzenet2.textContent = "Érvénytelen e-mail cím.❌ Adjon meg egy érvényes e-mail címet";
         uzenet2.style.color = "darkred";
-      } 
+      }
     });
 
     gomb2.addEventListener("click", () => {
@@ -53,8 +53,8 @@ fetch("footer.html") // betölti az oldalt
       uzenet2.textContent = "";
       email2Input.value = "";
       gomb2.disabled = true;
-  });
-}
+    });
+  }
 }, 100);
 
 
@@ -89,26 +89,26 @@ var swiper = new Swiper(".swiper", {
 swiper.slideTo(1, false, false);
 
 // kapcs
-document.querySelector(".contact-form").addEventListener("submit", function(e) {
-    e.preventDefault();
-    alert("Üzenet elküldve! (demo)");
+document.querySelector(".contact-form").addEventListener("submit", function (e) {
+  e.preventDefault();
+  alert("Üzenet elküldve! (demo)");
 });
 
 
 
 flatpickr("#dateRange", {
-    mode: "range",            
-    minDate: "today",         
-    dateFormat: "Y. m. d.",   
-    locale: "hu",             
-    showMonths: 2,            
-    
-    onClose: function(selectedDates, dateStr) {
-        if (selectedDates.length === 2) {
-            console.log("Érkezés:", selectedDates[0]);
-            console.log("Távozás:", selectedDates[1]);
-        }
+  mode: "range",
+  minDate: "today",
+  dateFormat: "Y. m. d.",
+  locale: "hu",
+  showMonths: 2,
+
+  onClose: function (selectedDates, dateStr) {
+    if (selectedDates.length === 2) {
+      console.log("Érkezés:", selectedDates[0]);
+      console.log("Távozás:", selectedDates[1]);
     }
+  }
 });
 
 

@@ -10,212 +10,225 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <link rel="stylesheet" href="css/style.css">
 </head>
-  <header id="js-navbar"></header>
+<header id="js-navbar"></header>
+
 <body>
-  
-
-
-<style>
-body {
-    font-family: 'Poppins', sans-serif;
-    background: #f3f5f9;
-    
-    color: #333;
-}
-
-h1 {
-    margin-bottom: 20px;
-}
-
-/* GRID */
-.wrapper {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 25px;
-    padding-left: 40px;
-    padding-right: 40px;
-}
-
-/* CARD */
-.card {
-    background: white;
-    padding: 25px;
-    border-radius: 14px;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
-}
-
-/* LEFT SIDE */
-.info-item {
-    display: flex;
-    align-items: center;
-    margin-bottom: 20px;
-}
-
-.icon {
-    width: 45px;
-    height: 45px;
-    background: #2f49b6;
-    color: white;
-    border-radius: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-right: 15px;
-}
-
-/* SOCIAL */
-.socials {
-    margin-top: 20px;
-}
-
-.socials i {
-    margin-right: 10px;
-    padding: 12px;
-    border-radius: 50%;
-    color: white;
-    cursor: pointer;
-}
-
-.fa-facebook { background: #1877f2; }
-.fa-instagram { background: #e1306c; }
-.fa-twitter { background: #1da1f2; }
-.fa-youtube { background: #ff0000; }
-
-/* FORM */
-form input, form textarea {
-    width: 100%;
-    padding: 12px;
-    margin-top: 10px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    font-family: inherit;
-}
-
-form button {
-    margin-top: 15px;
-    width: 100%;
-    padding: 14px;
-    background: #2f49b6;
-    color: white;
-    border: none;
-    border-radius: 8px;
-    font-weight: 600;
-    cursor: pointer;
-}
-
-form button:hover {
-    background: #1d35a3;
-}
-
-/* MAP */
-.map-box {
-    margin-top: 30px;
-}
-
-iframe {
-    width: 100%;
-    height: 300px;
-    border: none;
-    border-radius: 12px;
-}
-
-.main {
-    width: 100%;
-    max-width: 1000px; /* ← EZ SZABÁLYOZZA A MÉRETET */
-    padding: 20px;
-}
-
-.ha2{
-    padding: 15px;
-    text-align: center;
-}
-
-</style>
-</head>
 
 
 
-<h1 class="ha2">Kapcsolat</h1>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #f3f5f9;
 
-<div class="wrapper">
+            color: #333;
+        }
 
-    <!-- LEFT -->
-    <div class="card">
-        <h2>Elérhetőségeink</h2>
+        h1 {
+            margin-bottom: 20px;
+        }
 
-        <div class="info-item">
-            <div class="icon"><i class="fas fa-map-marker-alt"></i></div>
-            <div>
-                <strong>Cím</strong><br>
-                1061 Budapest, Andrássy út 45.
+        /* GRID */
+        .wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+            padding-left: 40px;
+            padding-right: 40px;
+        }
+
+        /* CARD */
+        .card {
+            background: white;
+            padding: 25px;
+            border-radius: 14px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        /* LEFT SIDE */
+        .info-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .icon {
+            width: 45px;
+            height: 45px;
+            background: #2f49b6;
+            color: white;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+        }
+
+        /* SOCIAL */
+        .socials {
+            margin-top: 20px;
+        }
+
+        .socials i {
+            margin-right: 10px;
+            padding: 12px;
+            border-radius: 50%;
+            color: white;
+            cursor: pointer;
+        }
+
+        .fa-facebook {
+            background: #1877f2;
+        }
+
+        .fa-instagram {
+            background: #e1306c;
+        }
+
+        .fa-twitter {
+            background: #1da1f2;
+        }
+
+        .fa-youtube {
+            background: #ff0000;
+        }
+
+        /* FORM */
+        form input,
+        form textarea {
+            width: 100%;
+            padding: 12px;
+            margin-top: 10px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-family: inherit;
+        }
+
+        form button {
+            margin-top: 15px;
+            width: 100%;
+            padding: 14px;
+            background: #2f49b6;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        form button:hover {
+            background: #1d35a3;
+        }
+
+        /* MAP */
+        .map-box {
+            margin-top: 30px;
+        }
+
+        iframe {
+            width: 100%;
+            height: 300px;
+            border: none;
+            border-radius: 12px;
+        }
+
+        .main {
+            width: 100%;
+            max-width: 1000px;
+            /* ← EZ SZABÁLYOZZA A MÉRETET */
+            padding: 20px;
+        }
+
+        .ha2 {
+            padding: 15px;
+            text-align: center;
+        }
+    </style>
+    </head>
+
+
+
+    <h1 class="ha2">Kapcsolat</h1>
+
+    <div class="wrapper">
+
+        <!-- LEFT -->
+        <div class="card">
+            <h2>Elérhetőségeink</h2>
+
+            <div class="info-item">
+                <div class="icon"><i class="fas fa-map-marker-alt"></i></div>
+                <div>
+                    <strong>Cím</strong><br>
+                    1061 Budapest, Andrássy út 45.
+                </div>
+            </div>
+
+            <div class="info-item">
+                <div class="icon"><i class="fas fa-phone"></i></div>
+                <div>
+                    <strong>Telefon</strong><br>
+                    +36 1 234 5678
+                </div>
+            </div>
+
+            <div class="info-item">
+                <div class="icon"><i class="fas fa-envelope"></i></div>
+                <div>
+                    <strong>Email</strong><br>
+                    aerovibeutazas@gmail.com
+                </div>
+            </div>
+
+            <div class="info-item">
+                <div class="icon"><i class="fas fa-clock"></i></div>
+                <div>
+                    <strong>Nyitvatartás</strong><br>
+                    H-P: 9:00–18:00<br>
+                    Szo: 10:00–14:00
+                </div>
+            </div>
+
+            <h3>Kövess minket</h3>
+            <div class="socials">
+                <p>Instagrammon: aerovibetoors</p>
+                <p>Facebookon: AeroVibe Toors</p>
+                <p>Tiktokon: aerovibess</p>
             </div>
         </div>
 
-        <div class="info-item">
-            <div class="icon"><i class="fas fa-phone"></i></div>
-            <div>
-                <strong>Telefon</strong><br>
-                +36 1 234 5678
-            </div>
+        <!-- RIGHT -->
+        <div class="card">
+            <h2>Küldj üzenetet</h2>
+
+            <form>
+                <label>* Név</label>
+                <input type="text">
+
+                <label>* Email cím</label>
+                <input type="email">
+
+                <label>* Tárgy</label>
+                <input type="text">
+
+                <label>Üzenet</label>
+                <textarea rows="5"></textarea>
+
+                <button><i class="fas fa-paper-plane"></i> Üzenet küldése</button>
+            </form>
         </div>
 
-        <div class="info-item">
-            <div class="icon"><i class="fas fa-envelope"></i></div>
-            <div>
-                <strong>Email</strong><br>
-                aerovibeutazas@gmail.com
-            </div>
-        </div>
-
-        <div class="info-item">
-            <div class="icon"><i class="fas fa-clock"></i></div>
-            <div>
-                <strong>Nyitvatartás</strong><br>
-                H-P: 9:00–18:00<br>
-                Szo: 10:00–14:00
-            </div>
-        </div>
-
-        <h3>Kövess minket</h3>
-        <div class="socials">
-            <p>Instagrammon: aerovibetoors</p>
-            <p>Facebookon: AeroVibe Toors</p>
-            <p>Tiktokon: aerovibess</p>
-        </div>
     </div>
 
-    <!-- RIGHT -->
-    <div class="card">
-        <h2 >Küldj üzenetet</h2>
-
-        <form>
-            <label>Név</label>
-            <input type="text">
-
-            <label>Email cím</label>
-            <input type="email">
-
-            <label>Tárgy</label>
-            <input type="text">
-
-            <label>Üzenet</label>
-            <textarea rows="5"></textarea>
-
-            <button><i class="fas fa-paper-plane"></i> Üzenet küldése</button>
-        </form>
+    <!-- MAP -->
+    <div class="map-box">
+        <h2 class="ha2">Irodánk helye</h2>
+        <iframe src="https://www.google.com/maps?q=Budapest,Andrássy út 45&output=embed"></iframe>
     </div>
-
-</div>
-
-<!-- MAP -->
-<div class="map-box">
-    <h2 class="ha2">Irodánk helye</h2>
-    <iframe src="https://www.google.com/maps?q=Budapest,Andrássy út 45&output=embed"></iframe>
-</div>
 
     <footer id="js-footer"></footer>
 
-    
+
     <script src="script/script.js"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
